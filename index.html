@@ -4,155 +4,385 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>MianContentWorks — AI Services & Payoneer</title>
-  <meta name="description" content="AI Content Writing, Web Design, Automation. Payoneer Payments Accepted. Fast delivery." />
+  <meta name="description" content="AI Content, Web Design and Automation services. Pay via Payoneer. Fast delivery." />
   <style>
     :root{
-      --bg:#0b1320; --card:#071026; --accent:#06c6d4; --muted:#9bb0c2;
-      --glass: rgba(255,255,255,0.03);
+      --bg:#071021; --card:#0b1724; --glass: rgba(255,255,255,0.03);
+      --accent:#06c6d4; --muted:#9bb0c2; --gold:#ffd27a;
+      --radius:14px; --glass-2: rgba(255,255,255,0.02);
     }
     *{box-sizing:border-box}
-    body{margin:0;font-family:Inter, Arial,sans-serif;background:linear-gradient(180deg,#071426,#02101a);color:#eaf6fb}
-    .wrap{max-width:980px;margin:28px auto;padding:20px}
+    html,body{height:100%}
+    body{
+      margin:0;font-family:Inter,system-ui,Arial,sans-serif;
+      background:linear-gradient(180deg,#03101a 0%, #071428 100%);
+      color:#e9f6fa; -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding-bottom:60px;
+    }
+
+    .wrap{max-width:1100px;margin:28px auto;padding:20px}
     header{display:flex;align-items:center;justify-content:space-between;gap:12px}
-    .brand{font-weight:800;font-size:22px}
+    .brand{font-weight:800;font-size:22px;letter-spacing:0.3px}
     .tag{color:var(--muted);font-size:13px}
-    .hero{background:var(--card);padding:20px;border-radius:12px;box-shadow:0 10px 30px rgba(2,6,23,0.6);margin-top:18px}
-    h1{margin:0 0 6px;font-size:22px}
+    .contact{font-size:13px;color:var(--muted)}
+    a{color:var(--accent);text-decoration:none}
+
+    /* Hero */
+    .hero{background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+           padding:28px;border-radius:var(--radius);box-shadow:0 10px 36px rgba(0,0,0,0.5);margin-top:18px}
+    .hero-grid{display:grid;grid-template-columns:1fr 340px;gap:22px;align-items:start}
+    h1{margin:0 0 6px;font-size:26px}
     p.lead{margin:0;color:var(--muted)}
-    .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:18px}
-    .svc{background:var(--glass);padding:14px;border-radius:10px}
-    .price{font-size:20px;font-weight:700;margin-top:8px}
-    .cta{display:inline-block;background:var(--accent);color:#012428;padding:10px 12px;border-radius:9px;text-decoration:none;font-weight:700;margin-top:10px}
-    form{margin-top:18px;background:rgba(255,255,255,0.02);padding:12px;border-radius:10px}
-    label{display:block;font-size:13px;color:var(--muted);margin-top:8px}
-    input, textarea, select{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
-    .muted{color:var(--muted)}
-    footer{margin-top:22px;color:var(--muted);font-size:13px;text-align:center}
-    .payinfo{background:#021622;padding:12px;border-radius:8px;margin-top:12px}
-    .flex{display:flex;gap:10px;align-items:center}
-    .small{font-size:13px}
-    .note{margin-top:10px;color:#ffd9a8;background:#2a210f;padding:8px;border-radius:8px}
+
+    /* Services */
+    .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:18px}
+    .svc{background:var(--glass);padding:16px;border-radius:12px;transition:transform .28s ease,box-shadow .28s ease}
+    .svc:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(2,8,20,0.6)}
+    .price{font-size:18px;font-weight:700;margin-top:8px}
+    .cta{display:inline-block;background:var(--accent);color:#042426;padding:10px 12px;border-radius:9px;text-decoration:none;font-weight:700;margin-top:10px;cursor:pointer}
+
+    /* Right panel */
+    .panel{background:var(--card);padding:14px;border-radius:10px}
+    .paybtn{display:block;width:100%;padding:12px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#66e6ea);color:#042426;font-weight:800;border:none;cursor:pointer}
+    .small{font-size:13px;color:var(--muted)}
+
+    /* Portfolio */
+    .portfolio{margin-top:22px}
+    .portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+    .portfolio-card{background:var(--glass);padding:14px;border-radius:12px;overflow:hidden;position:relative}
+    .thumb{height:140px;border-radius:10px;background:linear-gradient(135deg,#05202a,#0b2b3a);display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:700;margin-bottom:10px}
+    .tagline{color:var(--muted);font-size:13px}
+    /* simple subtle animation */
+    .portfolio-card{transform:translateY(8px);opacity:0;animation:fadeUp .6s ease forwards; }
+    .portfolio-card:nth-child(1){animation-delay:.12s}
+    .portfolio-card:nth-child(2){animation-delay:.20s}
+    .portfolio-card:nth-child(3){animation-delay:.28s}
+    .portfolio-card:nth-child(4){animation-delay:.36s}
+    @keyframes fadeUp{to{transform:none;opacity:1}}
+
+    /* FAQ */
+    .faq{margin-top:22px}
+    .q{background:var(--glass);border-radius:10px;padding:12px;margin-bottom:8px;cursor:pointer}
+    .q .qtitle{display:flex;justify-content:space-between;align-items:center}
+    .q .answer{max-height:0;overflow:hidden;transition:max-height .28s ease;padding-top:0}
+    .q.open .answer{padding-top:10px;max-height:400px}
+
+    /* modal popup */
+    .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,0.6);display:none;align-items:center;justify-content:center;z-index:1200}
+    .modal{background:linear-gradient(180deg,#071a22,#021018);padding:18px;border-radius:12px;width:min(520px,94%);box-shadow:0 20px 60px rgba(0,0,0,0.6);color:#eaf6fb}
+    .modal h3{margin:0 0 8px}
+    .field{margin-top:10px}
+    .copyrow{display:flex;gap:8px;align-items:center}
+    .chip{background:#031f24;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);font-family:monospace}
+    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 10px;border-radius:8px;color:var(--muted);cursor:pointer}
+
+    /* footer */
+    footer{margin-top:30px;text-align:center;color:var(--muted);font-size:13px}
+
+    /* responsive tweaks */
+    @media(max-width:900px){.hero-grid{grid-template-columns:1fr}.panel{order:2}}
   </style>
 </head>
-
 <body>
   <div class="wrap">
-
     <header>
       <div>
         <div class="brand">MianContentWorks</div>
-        <div class="tag">AI Content • Web Design • Automation — Fast delivery</div>
+        <div class="tag">AI Content • Web Design • Business Automation</div>
       </div>
-      <div class="muted small">
-        Contact: <strong>+92 334 4537784</strong> • 
-        <a href="mailto:miancontentworks@gmail.com" style="color:var(--accent)">miancontentworks@gmail.com</a>
-      </div>
+      <div class="contact">WhatsApp: <strong>+92 334 4537784</strong> • <a href="mailto:miancontentworks@gmail.com">miancontentworks@gmail.com</a></div>
     </header>
 
-    <main class="hero">
-      <h1>Choose a service</h1>
-      <p class="lead">Select your service → Pay via Payoneer → Send proof → Work begins.</p>
+    <main class="hero" role="main" aria-labelledby="main-heading">
+      <div class="hero-grid">
+        <section>
+          <h1 id="main-heading">Premium AI Services — Fast, Reliable, Worldwide</h1>
+          <p class="lead">Choose a service below — pay via Payoneer (popup) — send proof — we start work. Transparent pricing, rapid delivery, and one revision included.</p>
 
-      <div class="services">
+          <div class="services" id="services">
+            <div class="svc">
+              <strong>1) AI Content Writing + SEO</strong>
+              <div class="tagline">800–1500 words, keyword research, on-page SEO</div>
+              <div class="price">$80 – $200</div>
+              <div style="margin-top:8px" class="small">Starting deliverables include optimized article + meta tags. 1 revision.</div>
+              <div style="margin-top:10px"><button class="cta" onclick="selectService('AI Content Writing + SEO',80)">Buy — Start $80</button></div>
+            </div>
 
-        <div class="svc">
-          <strong>AI Content Writing + SEO</strong>
-          <div class="small muted">Blogs • SEO • Fast delivery</div>
-          <div class="price">$80 – $200</div>
-          <a class="cta" href="#" onclick="buyNow('AI Content Writing + SEO','80')">Buy — Start $80</a>
-        </div>
+            <div class="svc">
+              <strong>2) AI Web Design (Landing Pages)</strong>
+              <div class="tagline">Conversion-first landing pages, responsive, fast</div>
+              <div class="price">$100 – $400</div>
+              <div style="margin-top:8px" class="small">Includes HTML/CSS, deployment guidance. 1 revision.</div>
+              <div style="margin-top:10px"><button class="cta" onclick="selectService('AI Web Design (Landing Pages)',100)">Buy — Start $100</button></div>
+            </div>
 
-        <div class="svc">
-          <strong>AI Web Design (Landing Pages)</strong>
-          <div class="small muted">Conversion-optimized landing pages</div>
-          <div class="price">$100 – $400</div>
-          <a class="cta" href="#" onclick="buyNow('AI Web Design','100')">Buy — Start $100</a>
-        </div>
+            <div class="svc">
+              <strong>3) AI Automation Services</strong>
+              <div class="tagline">Workflows, Zapier/Make integrations, email automation</div>
+              <div class="price">$100 – $1,000</div>
+              <div style="margin-top:8px" class="small">High-value automation for business efficiency. Discovery call recommended.</div>
+              <div style="margin-top:10px"><button class="cta" onclick="selectService('AI Automation Services',100)">Buy — Start $100</button></div>
+            </div>
+          </div>
 
-        <div class="svc">
-          <strong>AI Automation Services</strong>
-          <div class="small muted">Workflows • Integrations • Zapier/Make</div>
-          <div class="price">$100 – $1000</div>
-          <a class="cta" href="#" onclick="buyNow('AI Automation','100')">Buy — Start $100</a>
-        </div>
+          <!-- Portfolio -->
+          <div class="portfolio" aria-label="Portfolio examples">
+            <h2 style="margin-top:20px">Portfolio</h2>
+            <div class="portfolio-grid">
+              <article class="portfolio-card">
+                <div class="thumb">Landing page — SaaS</div>
+                <div><strong>High-converting SaaS landing</strong></div>
+                <div class="tagline">Fast load, clear CTA, client reported +32% conversions</div>
+              </article>
 
+              <article class="portfolio-card">
+                <div class="thumb">Blog & SEO</div>
+                <div><strong>Authority blog series</strong></div>
+                <div class="tagline">10 posts optimized — organic traffic doubled in 3 months</div>
+              </article>
+
+              <article class="portfolio-card">
+                <div class="thumb">Automation</div>
+                <div><strong>Sales pipeline automation</strong></div>
+                <div class="tagline">Leads routed, qualified, and followed up automatically</div>
+              </article>
+
+              <article class="portfolio-card">
+                <div class="thumb">Brand kit</div>
+                <div><strong>Fast brand landing</strong></div>
+                <div class="tagline">Complete landing + content + basic SEO</div>
+              </article>
+            </div>
+          </div>
+
+          <!-- FAQ -->
+          <div class="faq" id="faq" style="margin-top:22px">
+            <h2>FAQ</h2>
+            <div class="q" role="button" tabindex="0">
+              <div class="qtitle"><div>How do I pay?</div><div class="small">Payoneer</div></div>
+              <div class="answer small">Click any "Buy" button — a Payoneer popup will show the Payoneer contact details and copy buttons. Send payment externally via Payoneer and then send proof via WhatsApp or email.</div>
+            </div>
+
+            <div class="q" role="button" tabindex="0">
+              <div class="qtitle"><div>How long until delivery?</div><div class="small">Typical timing</div></div>
+              <div class="answer small">Starts at 48 hours for content and landing pages. Automation projects vary — we'll confirm ETA after payment proof and brief.</div>
+            </div>
+
+            <div class="q" role="button" tabindex="0">
+              <div class="qtitle"><div>Do you accept revisions?</div><div class="small">Yes</div></div>
+              <div class="answer small">Yes — one revision included for Basic/Pro. Additional revisions are available as add-ons.</div>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- Right panel -->
+        <aside class="panel" aria-labelledby="order-panel">
+          <div id="order-panel">
+            <h3 style="margin:0 0 6px">Quick Order</h3>
+            <div class="small">Select a service and open Payoneer popup to view payment details.</div>
+
+            <div style="margin-top:12px">
+              <label class="small">Selected</label>
+              <div id="selectedService" style="font-weight:700">None</div>
+            </div>
+
+            <div style="margin-top:10px">
+              <label class="small">Amount (USD)</label>
+              <input id="orderAmount" type="text" inputmode="numeric" placeholder="e.g. 80" style="width:100%;padding:10px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:inherit" />
+            </div>
+
+            <div style="margin-top:12px">
+              <label class="small">Your email</label>
+              <input id="orderEmail" type="email" placeholder="you@example.com" style="width:100%;padding:10px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:inherit" />
+            </div>
+
+            <div style="margin-top:14px;display:flex;gap:10px">
+              <button class="paybtn" onclick="openPayPopup()">Open Payoneer & Pay</button>
+              <button class="btn-ghost" onclick="scrollToForm()">Send Brief</button>
+            </div>
+
+            <div style="margin-top:12px" class="small muted">
+              After payment, send proof (screenshot or transaction ID) to WhatsApp or email. Work begins after confirmation.
+            </div>
+
+            <div style="margin-top:12px" class="payinfo small">
+              <strong>Payoneer contact</strong>
+              <div style="margin-top:6px">Phone / WhatsApp: <strong>+92 334 4537784</strong></div>
+              <div style="margin-top:4px">Email: <a href="mailto:miancontentworks@gmail.com">miancontentworks@gmail.com</a></div>
+            </div>
+          </div>
+        </aside>
       </div>
 
-      <div class="payinfo">
-        <strong>Payoneer Payment Info</strong>
-        <p class="small muted">Send payment to:</p>
-        <div class="small">
-          <strong>Payoneer & WhatsApp:</strong> +92 334 4537784<br>
-          <strong>Email:</strong> miancontentworks@gmail.com
-        </div>
-      </div>
+      <!-- Contact / upload form below hero -->
+      <section style="margin-top:18px">
+        <form id="orderForm" onsubmit="return onSubmitOrder(event)" style="background:var(--glass-2);padding:14px;border-radius:12px">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+            <div>
+              <label class="small">Full name</label>
+              <input id="name" required type="text" placeholder="Your full name" style="padding:10px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:inherit" />
+            </div>
+            <div>
+              <label class="small">Email</label>
+              <input id="email" required type="email" placeholder="you@example.com" style="padding:10px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:inherit" />
+            </div>
+          </div>
 
-      <form id="orderForm" onsubmit="return prepareContactLink(event)">
-        <label>Name</label>
-        <input id="name" required>
+          <div style="margin-top:10px">
+            <label class="small">Service</label>
+            <select id="serviceSelect" style="padding:10px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:inherit">
+              <option>AI Content Writing + SEO</option>
+              <option>AI Web Design (Landing Pages)</option>
+              <option>AI Automation Services</option>
+            </select>
+          </div>
 
-        <label>Email</label>
-        <input id="email" type="email" required>
+          <div style="margin-top:10px">
+            <label class="small">Amount (USD)</label>
+            <input id="amountField" type="text" placeholder="e.g. 80" style="padding:10px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:inherit" />
+          </div>
 
-        <label>Selected Service</label>
-        <select id="service" required>
-          <option>AI Content Writing + SEO</option>
-          <option>AI Web Design</option>
-          <option>AI Automation</option>
-        </select>
+          <div style="margin-top:10px">
+            <label class="small">Brief / Notes (optional)</label>
+            <textarea id="notesField" rows="4" style="width:100%;padding:10px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:inherit"></textarea>
+          </div>
 
-        <label>Amount (USD)</label>
-        <input id="amount" required>
-
-        <label>Notes</label>
-        <textarea id="notes"></textarea>
-
-        <button class="cta" type="submit">Send Order</button>
-      </form>
-
-      <div id="formNote" class="note" style="display:none"></div>
+          <div style="margin-top:10px;display:flex;gap:10px;align-items:center">
+            <button class="cta" type="submit">Send order & open Payoneer</button>
+            <div class="small muted">Or message: <strong>+92 334 4537784</strong></div>
+          </div>
+        </form>
+      </section>
 
     </main>
 
     <footer>
-      © 2025 MianContentWorks — Payoneer Payments Only
+      © 2025 MianContentWorks • Payments via Payoneer • WhatsApp: +92 334 4537784 • <a href="mailto:miancontentworks@gmail.com">miancontentworks@gmail.com</a>
     </footer>
+  </div>
 
+  <!-- Modal -->
+  <div id="modalBackdrop" class="modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal" role="document" aria-labelledby="payTitle">
+      <h3 id="payTitle">Pay via Payoneer</h3>
+      <p class="small">Use the contact below in your Payoneer app or transfer directly. After sending payment, please send proof via WhatsApp or email.</p>
+
+      <div class="field" style="margin-top:8px">
+        <div class="small">Phone / WhatsApp</div>
+        <div class="copyrow" style="margin-top:6px">
+          <div class="chip" id="payPhone">+92 334 4537784</div>
+          <button class="btn-ghost" onclick="copyText('#payPhone')">Copy</button>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="small">Email</div>
+        <div class="copyrow" style="margin-top:6px">
+          <div class="chip" id="payEmail">miancontentworks@gmail.com</div>
+          <button class="btn-ghost" onclick="copyText('#payEmail')">Copy</button>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="small">Suggested message (paste to Payoneer/WhatsApp)</div>
+        <textarea id="suggestedMessage" rows="4" style="width:100%;padding:10px;border-radius:8px;background:#01171a;border:1px solid rgba(255,255,255,0.04);color:inherit;font-family:monospace"></textarea>
+      </div>
+
+      <div style="display:flex;gap:10px;margin-top:12px;justify-content:flex-end">
+        <button class="btn-ghost" onclick="closePayPopup()">Close</button>
+        <button class="paybtn" onclick="openWhatsApp()">Message via WhatsApp</button>
+      </div>
+    </div>
   </div>
 
 <script>
-function encode(s){ return encodeURIComponent(s).replace(/%20/g,'+') }
+  // Interactive behaviors
+  let selected = null;
+  function selectService(name, amount){
+    selected = name;
+    document.getElementById('selectedService').textContent = name;
+    document.getElementById('orderAmount').value = amount;
+    document.getElementById('amountField').value = amount;
+    // Scroll to panel
+    const panel = document.querySelector('.panel');
+    panel.scrollIntoView({behavior:'smooth'});
+  }
 
-function buyNow(service, amount){
-  document.getElementById('service').value = service;
-  document.getElementById('amount').value = amount;
-  window.scrollTo({top:document.body.scrollHeight, behavior:"smooth"});
-}
+  function openPayPopup(){
+    const backdrop = document.getElementById('modalBackdrop');
+    const phoneEl = document.getElementById('payPhone');
+    const emailEl = document.getElementById('payEmail');
+    // Fill suggested message
+    const service = document.getElementById('selectedService').textContent || document.getElementById('serviceSelect').value;
+    const amount = document.getElementById('orderAmount').value || document.getElementById('amountField').value || '';
+    const name = document.getElementById('orderEmail').value || '';
+    const msg = `Order from website\nService: ${service}\nAmount: ${amount} USD\nPayer email: ${name}\nPlease find transaction ID/receipt attached after transfer.`;
+    document.getElementById('suggestedMessage').value = msg;
+    backdrop.style.display = 'flex';
+    backdrop.setAttribute('aria-hidden','false');
+  }
+  function closePayPopup(){
+    const backdrop = document.getElementById('modalBackdrop');
+    backdrop.style.display = 'none';
+    backdrop.setAttribute('aria-hidden','true');
+  }
 
-function prepareContactLink(ev){
-  ev.preventDefault();
+  function copyText(selector){
+    const text = document.querySelector(selector).textContent;
+    navigator.clipboard.writeText(text).then(()=> {
+      alert('Copied: ' + text);
+    }).catch(()=>alert('Copy failed — select and copy manually.'));
+  }
 
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const service = document.getElementById("service").value;
-  const amount = document.getElementById("amount").value;
-  const notes = document.getElementById("notes").value;
+  function openWhatsApp(){
+    const phone = document.getElementById('payPhone').textContent.replace(/\D/g,'');
+    const message = encodeURIComponent(document.getElementById('suggestedMessage').value);
+    const link = `https://wa.me/${phone}?text=${message}`;
+    window.open(link,'_blank');
+  }
 
-  const phone = "923344537784";
-  const payEmail = "miancontentworks@gmail.com";
+  function scrollToForm(){
+    document.getElementById('orderForm').scrollIntoView({behavior:'smooth'});
+  }
 
-  const msg = 
-    `New order:%0AName:${encode(name)}%0AEmail:${encode(email)}%0AService:${encode(service)}%0AAmount:${encode(amount)}%0ANotes:${encode(notes)}%0A%0APayoneer Email:${encode(payEmail)}%0AWhatsApp:+92${phone}`;
+  // Order form submit -> open popup and prepare suggested message
+  function onSubmitOrder(e){
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const service = document.getElementById('serviceSelect').value;
+    const amount = document.getElementById('amountField').value.trim();
+    const notes = document.getElementById('notesField').value.trim();
+    if(!name || !email || !service || !amount){
+      alert('Please fill name, email, service and amount.');
+      return false;
+    }
+    // populate panel
+    document.getElementById('selectedService').textContent = service;
+    document.getElementById('orderAmount').value = amount;
+    // suggested message includes notes
+    document.getElementById('suggestedMessage').value =
+      `Order from website\nName: ${name}\nEmail: ${email}\nService: ${service}\nAmount: ${amount} USD\nNotes: ${notes}\n\nPlease find transaction ID/receipt attached after transfer.`;
+    openPayPopup();
+    return false;
+  }
 
-  const wa = `https://wa.me/${phone}?text=${msg}`;
+  // FAQ toggle
+  document.querySelectorAll('.faq .q').forEach(q=>{
+    q.addEventListener('click',()=> q.classList.toggle('open'));
+    q.addEventListener('keypress',(e)=>{ if(e.key==='Enter' || e.key===' ') q.classList.toggle('open') });
+  });
 
-  document.getElementById("formNote").style.display="block";
-  document.getElementById("formNote").innerHTML =
-    `<a href="${wa}" target="_blank" style="color:lightblue">Click here to send on WhatsApp</a>`;
+  // Close modal on backdrop click
+  document.getElementById('modalBackdrop').addEventListener('click', (ev)=>{
+    if(ev.target === ev.currentTarget) closePayPopup();
+  });
 
-  return false;
-}
+  // Accessibility: close modal with Esc
+  document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closePayPopup(); });
 </script>
-
 </body>
 </html>
