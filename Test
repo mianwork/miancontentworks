@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MianContentWorks — AI Services & Payoneer</title>
+  <meta name="description" content="AI Content Writing, Web Design, Automation. Payoneer Payments Accepted. Fast delivery." />
+  <style>
+    :root{
+      --bg:#0b1320; --card:#071026; --accent:#06c6d4; --muted:#9bb0c2;
+      --glass: rgba(255,255,255,0.03);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter, Arial,sans-serif;background:linear-gradient(180deg,#071426,#02101a);color:#eaf6fb}
+    .wrap{max-width:980px;margin:28px auto;padding:20px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{font-weight:800;font-size:22px}
+    .tag{color:var(--muted);font-size:13px}
+    .hero{background:var(--card);padding:20px;border-radius:12px;box-shadow:0 10px 30px rgba(2,6,23,0.6);margin-top:18px}
+    h1{margin:0 0 6px;font-size:22px}
+    p.lead{margin:0;color:var(--muted)}
+    .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:18px}
+    .svc{background:var(--glass);padding:14px;border-radius:10px}
+    .price{font-size:20px;font-weight:700;margin-top:8px}
+    .cta{display:inline-block;background:var(--accent);color:#012428;padding:10px 12px;border-radius:9px;text-decoration:none;font-weight:700;margin-top:10px}
+    form{margin-top:18px;background:rgba(255,255,255,0.02);padding:12px;border-radius:10px}
+    label{display:block;font-size:13px;color:var(--muted);margin-top:8px}
+    input, textarea, select{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+    .muted{color:var(--muted)}
+    footer{margin-top:22px;color:var(--muted);font-size:13px;text-align:center}
+    .payinfo{background:#021622;padding:12px;border-radius:8px;margin-top:12px}
+    .flex{display:flex;gap:10px;align-items:center}
+    .small{font-size:13px}
+    .note{margin-top:10px;color:#ffd9a8;background:#2a210f;padding:8px;border-radius:8px}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <header>
+      <div>
+        <div class="brand">MianContentWorks</div>
+        <div class="tag">AI Content • Web Design • Automation — Fast delivery</div>
+      </div>
+      <div class="muted small">
+        Contact: <strong>+92 334 4537784</strong> • 
+        <a href="mailto:miancontentworks@gmail.com" style="color:var(--accent)">miancontentworks@gmail.com</a>
+      </div>
+    </header>
+
+    <main class="hero">
+      <h1>Choose a service</h1>
+      <p class="lead">Select your service → Pay via Payoneer → Send proof → Work begins.</p>
+
+      <div class="services">
+
+        <div class="svc">
+          <strong>AI Content Writing + SEO</strong>
+          <div class="small muted">Blogs • SEO • Fast delivery</div>
+          <div class="price">$80 – $200</div>
+          <a class="cta" href="#" onclick="buyNow('AI Content Writing + SEO','80')">Buy — Start $80</a>
+        </div>
+
+        <div class="svc">
+          <strong>AI Web Design (Landing Pages)</strong>
+          <div class="small muted">Conversion-optimized landing pages</div>
+          <div class="price">$100 – $400</div>
+          <a class="cta" href="#" onclick="buyNow('AI Web Design','100')">Buy — Start $100</a>
+        </div>
+
+        <div class="svc">
+          <strong>AI Automation Services</strong>
+          <div class="small muted">Workflows • Integrations • Zapier/Make</div>
+          <div class="price">$100 – $1000</div>
+          <a class="cta" href="#" onclick="buyNow('AI Automation','100')">Buy — Start $100</a>
+        </div>
+
+      </div>
+
+      <div class="payinfo">
+        <strong>Payoneer Payment Info</strong>
+        <p class="small muted">Send payment to:</p>
+        <div class="small">
+          <strong>Payoneer & WhatsApp:</strong> +92 334 4537784<br>
+          <strong>Email:</strong> miancontentworks@gmail.com
+        </div>
+      </div>
+
+      <form id="orderForm" onsubmit="return prepareContactLink(event)">
+        <label>Name</label>
+        <input id="name" required>
+
+        <label>Email</label>
+        <input id="email" type="email" required>
+
+        <label>Selected Service</label>
+        <select id="service" required>
+          <option>AI Content Writing + SEO</option>
+          <option>AI Web Design</option>
+          <option>AI Automation</option>
+        </select>
+
+        <label>Amount (USD)</label>
+        <input id="amount" required>
+
+        <label>Notes</label>
+        <textarea id="notes"></textarea>
+
+        <button class="cta" type="submit">Send Order</button>
+      </form>
+
+      <div id="formNote" class="note" style="display:none"></div>
+
+    </main>
+
+    <footer>
+      © 2025 MianContentWorks — Payoneer Payments Only
+    </footer>
+
+  </div>
+
+<script>
+function encode(s){ return encodeURIComponent(s).replace(/%20/g,'+') }
+
+function buyNow(service, amount){
+  document.getElementById('service').value = service;
+  document.getElementById('amount').value = amount;
+  window.scrollTo({top:document.body.scrollHeight, behavior:"smooth"});
+}
+
+function prepareContactLink(ev){
+  ev.preventDefault();
+
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const service = document.getElementById("service").value;
+  const amount = document.getElementById("amount").value;
+  const notes = document.getElementById("notes").value;
+
+  const phone = "923344537784";
+  const payEmail = "miancontentworks@gmail.com";
+
+  const msg = 
+    `New order:%0AName:${encode(name)}%0AEmail:${encode(email)}%0AService:${encode(service)}%0AAmount:${encode(amount)}%0ANotes:${encode(notes)}%0A%0APayoneer Email:${encode(payEmail)}%0AWhatsApp:+92${phone}`;
+
+  const wa = `https://wa.me/${phone}?text=${msg}`;
+
+  document.getElementById("formNote").style.display="block";
+  document.getElementById("formNote").innerHTML =
+    `<a href="${wa}" target="_blank" style="color:lightblue">Click here to send on WhatsApp</a>`;
+
+  return false;
+}
+</script>
+
+</body>
+</html>
