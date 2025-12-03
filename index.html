@@ -51,7 +51,7 @@
     /* Portfolio */
     .portfolio{margin-top:22px}
     .portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
-    .portfolio-card{background:var(--glass);padding:14px;border-radius:12px;overflow:hidden;position:relative}
+    .portfolio-card{background:var(--glass);padding:14px;border-radius:12px;overflow:hidden;position:relative;cursor:pointer}
     .thumb{height:140px;border-radius:10px;background:linear-gradient(135deg,#05202a,#0b2b3a);display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:700;margin-bottom:10px}
     .tagline{color:var(--muted);font-size:13px}
     /* simple subtle animation */
@@ -59,7 +59,6 @@
     .portfolio-card:nth-child(1){animation-delay:.12s}
     .portfolio-card:nth-child(2){animation-delay:.20s}
     .portfolio-card:nth-child(3){animation-delay:.28s}
-    .portfolio-card:nth-child(4){animation-delay:.36s}
     @keyframes fadeUp{to{transform:none;opacity:1}}
 
     /* FAQ */
@@ -69,14 +68,17 @@
     .q .answer{max-height:0;overflow:hidden;transition:max-height .28s ease;padding-top:0}
     .q.open .answer{padding-top:10px;max-height:400px}
 
-    /* modal popup */
+    /* modal popup (Payoneer) */
     .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,0.6);display:none;align-items:center;justify-content:center;z-index:1200}
-    .modal{background:linear-gradient(180deg,#071a22,#021018);padding:18px;border-radius:12px;width:min(520px,94%);box-shadow:0 20px 60px rgba(0,0,0,0.6);color:#eaf6fb}
+    .modal{background:linear-gradient(180deg,#071a22,#021018);padding:18px;border-radius:12px;width:min(720px,94%);box-shadow:0 20px 60px rgba(0,0,0,0.6);color:#eaf6fb}
     .modal h3{margin:0 0 8px}
     .field{margin-top:10px}
     .copyrow{display:flex;gap:8px;align-items:center}
     .chip{background:#031f24;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);font-family:monospace}
     .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 10px;border-radius:8px;color:var(--muted);cursor:pointer}
+
+    /* sample modal specifics */
+    .sample-pre{background:#021417;padding:14px;border-radius:8px;color:#e9f6fa;font-family:monospace;white-space:pre-wrap;line-height:1.5}
 
     /* footer */
     footer{margin-top:30px;text-align:center;color:var(--muted);font-size:13px}
@@ -131,29 +133,28 @@
           <div class="portfolio" aria-label="Portfolio examples">
             <h2 style="margin-top:20px">Portfolio</h2>
             <div class="portfolio-grid">
-              <article class="portfolio-card">
-                <div class="thumb">Landing page — SaaS</div>
-                <div><strong>High-converting SaaS landing</strong></div>
-                <div class="tagline">Fast load, clear CTA, client reported +32% conversions</div>
+              <!-- Tile for AI Content Writing + SEO -->
+              <article class="portfolio-card" onclick="openSample('sample1Modal')">
+                <div class="thumb">AI Content</div>
+                <div><strong>AI Content Writing + SEO</strong></div>
+                <div class="tagline">Sample: “How Modern Businesses Use AI to Increase Revenue by 40%” (Watermarked) — click to view</div>
               </article>
 
-              <article class="portfolio-card">
-                <div class="thumb">Blog & SEO</div>
-                <div><strong>Authority blog series</strong></div>
-                <div class="tagline">10 posts optimized — organic traffic doubled in 3 months</div>
+              <!-- Tile for AI Web Design -->
+              <article class="portfolio-card" onclick="openSample('sample2Modal')">
+                <div class="thumb">Web Design</div>
+                <div><strong>AI Web Design (Landing Pages)</strong></div>
+                <div class="tagline">Landing page mockup + structure — click to view</div>
               </article>
 
-              <article class="portfolio-card">
+              <!-- Tile for AI Automation Services -->
+              <article class="portfolio-card" onclick="openSample('sample3Modal')">
                 <div class="thumb">Automation</div>
-                <div><strong>Sales pipeline automation</strong></div>
-                <div class="tagline">Leads routed, qualified, and followed up automatically</div>
+                <div><strong>AI Automation Services</strong></div>
+                <div class="tagline">CRM automation workflow example — click to view</div>
               </article>
 
-              <article class="portfolio-card">
-                <div class="thumb">Brand kit</div>
-                <div><strong>Fast brand landing</strong></div>
-                <div class="tagline">Complete landing + content + basic SEO</div>
-              </article>
+              <!-- NOTE: fourth item removed as you requested -->
             </div>
           </div>
 
@@ -264,7 +265,7 @@
     </footer>
   </div>
 
-  <!-- Modal -->
+  <!-- Payoneer Modal -->
   <div id="modalBackdrop" class="modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true">
     <div class="modal" role="document" aria-labelledby="payTitle">
       <h3 id="payTitle">Pay via Payoneer</h3>
@@ -298,6 +299,110 @@
     </div>
   </div>
 
+  <!-- Sample Modals (hidden) -->
+  <div id="sample1Modal" class="modal-backdrop" aria-hidden="true" style="display:none;align-items:center;justify-content:center">
+    <div class="modal" role="document" aria-labelledby="sample1Title">
+      <h3 id="sample1Title">PORTFOLIO SAMPLE #1 — AI Content Writing + SEO (Watermarked)</h3>
+      <div class="sample-pre">
+[WATERMARK: © Mian Content Works — Do Not Copy]
+
+Title: “How Modern Businesses Use AI to Increase Revenue by 40%”
+Word Count: 290
+
+In 2025, AI has transformed how businesses operate. From customer support to sales optimization, companies adopting AI tools report an average 40% increase in operational efficiency.
+
+One of the biggest contributors is AI-powered automation. With the right system in place, businesses can automate repetitive tasks, improve accuracy, and reduce staffing costs without sacrificing quality. AI chatbots now handle up to 70% of customer queries, freeing human teams to focus on high-value tasks.
+
+SEO-based content also plays a major role. Companies using AI-assisted keyword research and content strategies are ranking 3× faster on Google. The combination of optimized content + automation systems gives brands an unmatched competitive edge.
+
+Whether you're a startup or an established business, leveraging AI today determines your growth tomorrow.
+
+[WATERMARK: © Mian Content Works — All Rights Reserved]
+      </div>
+      <div style="text-align:right">
+        <button class="btn-ghost" onclick="closeSample('sample1Modal')">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="sample2Modal" class="modal-backdrop" aria-hidden="true" style="display:none;align-items:center;justify-content:center">
+    <div class="modal" role="document" aria-labelledby="sample2Title">
+      <h3 id="sample2Title">PORTFOLIO SAMPLE #2 — AI Website Design (Landing Page)</h3>
+      <div class="sample-pre">
+[WATERMARK: © Mian Content Works — Do Not Copy]
+
+Hero Section:
+“Unlock Growth With AI-Powered Automation”
+Subline: “Fast, clean, high-converting landing pages built with modern UI/UX principles.”
+CTA: Get Your Website in 48 Hours
+
+Sections:
+
+⭐ AI-Optimized Design
+
+⚡ Fast loading (90+ Lighthouse score)
+
+📱 Fully mobile responsive
+
+🔍 SEO-Friendly
+
+🎨 Premium animations and UI
+
+Sample Feature Box:
+“AI Research-Driven Copy + Conversion Framework → 28% average boost in customer sign-ups.”
+
+[WATERMARK: © Mian Content Works — All Rights Reserved]
+      </div>
+      <div style="text-align:right">
+        <button class="btn-ghost" onclick="closeSample('sample2Modal')">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="sample3Modal" class="modal-backdrop" aria-hidden="true" style="display:none;align-items:center;justify-content:center">
+    <div class="modal" role="document" aria-labelledby="sample3Title">
+      <h3 id="sample3Title">PORTFOLIO SAMPLE #3 — AI Automation System (Workflow Example)</h3>
+      <div class="sample-pre">
+[WATERMARK: © Mian Content Works — Do Not Copy]
+
+Project: Customer Support Automation
+Client Type: Small Business – E-commerce
+
+Deliverables:
+
+AI-powered support chatbot
+
+Automatic reply system
+
+Lead capture automation
+
+CRM sync workflow
+
+Results:
+✔ Response time reduced from 3 hours → 10 seconds
+✔ Support cost reduced by 65%
+✔ Customer satisfaction improved from 78% → 94%
+
+Automation Steps:
+
+Incoming customer query gets tagged automatically
+
+AI assistant responds instantly
+
+If complex, it escalates to human staff
+
+Lead details sync to business CRM
+
+Daily analytics sent to email automatically
+
+[WATERMARK: © Mian Content Works — Owned & Protected]
+      </div>
+      <div style="text-align:right">
+        <button class="btn-ghost" onclick="closeSample('sample3Modal')">Close</button>
+      </div>
+    </div>
+  </div>
+
 <script>
   // Interactive behaviors
   let selected = null;
@@ -305,22 +410,23 @@
     selected = name;
     document.getElementById('selectedService').textContent = name;
     document.getElementById('orderAmount').value = amount;
-    document.getElementById('amountField').value = amount;
+    // if amountField exists (in form), set it too
+    const af = document.getElementById('amountField');
+    if(af) af.value = amount;
     // Scroll to panel
     const panel = document.querySelector('.panel');
-    panel.scrollIntoView({behavior:'smooth'});
+    if(panel) panel.scrollIntoView({behavior:'smooth'});
   }
 
   function openPayPopup(){
     const backdrop = document.getElementById('modalBackdrop');
-    const phoneEl = document.getElementById('payPhone');
-    const emailEl = document.getElementById('payEmail');
     // Fill suggested message
-    const service = document.getElementById('selectedService').textContent || document.getElementById('serviceSelect').value;
-    const amount = document.getElementById('orderAmount').value || document.getElementById('amountField').value || '';
+    const service = document.getElementById('selectedService').textContent || (document.getElementById('serviceSelect') && document.getElementById('serviceSelect').value) || 'Selected service';
+    const amount = document.getElementById('orderAmount').value || (document.getElementById('amountField') && document.getElementById('amountField').value) || '';
     const name = document.getElementById('orderEmail').value || '';
     const msg = `Order from website\nService: ${service}\nAmount: ${amount} USD\nPayer email: ${name}\nPlease find transaction ID/receipt attached after transfer.`;
-    document.getElementById('suggestedMessage').value = msg;
+    const suggested = document.getElementById('suggestedMessage');
+    if(suggested) suggested.value = msg;
     backdrop.style.display = 'flex';
     backdrop.setAttribute('aria-hidden','false');
   }
@@ -331,7 +437,9 @@
   }
 
   function copyText(selector){
-    const text = document.querySelector(selector).textContent;
+    const el = document.querySelector(selector);
+    if(!el) return alert('Copy failed');
+    const text = el.textContent;
     navigator.clipboard.writeText(text).then(()=> {
       alert('Copied: ' + text);
     }).catch(()=>alert('Copy failed — select and copy manually.'));
@@ -345,7 +453,8 @@
   }
 
   function scrollToForm(){
-    document.getElementById('orderForm').scrollIntoView({behavior:'smooth'});
+    const form = document.getElementById('orderForm');
+    if(form) form.scrollIntoView({behavior:'smooth'});
   }
 
   // Order form submit -> open popup and prepare suggested message
@@ -353,9 +462,9 @@
     e.preventDefault();
     const name = document.getElementById('name').value.trim();
     const email = document.getElementById('email').value.trim();
-    const service = document.getElementById('serviceSelect').value;
-    const amount = document.getElementById('amountField').value.trim();
-    const notes = document.getElementById('notesField').value.trim();
+    const service = (document.getElementById('serviceSelect') && document.getElementById('serviceSelect').value) || 'Selected service';
+    const amount = (document.getElementById('amountField') && document.getElementById('amountField').value.trim()) || '';
+    const notes = (document.getElementById('notesField') && document.getElementById('notesField').value.trim()) || '';
     if(!name || !email || !service || !amount){
       alert('Please fill name, email, service and amount.');
       return false;
@@ -364,7 +473,8 @@
     document.getElementById('selectedService').textContent = service;
     document.getElementById('orderAmount').value = amount;
     // suggested message includes notes
-    document.getElementById('suggestedMessage').value =
+    const suggested = document.getElementById('suggestedMessage');
+    if(suggested) suggested.value =
       `Order from website\nName: ${name}\nEmail: ${email}\nService: ${service}\nAmount: ${amount} USD\nNotes: ${notes}\n\nPlease find transaction ID/receipt attached after transfer.`;
     openPayPopup();
     return false;
@@ -376,13 +486,47 @@
     q.addEventListener('keypress',(e)=>{ if(e.key==='Enter' || e.key===' ') q.classList.toggle('open') });
   });
 
-  // Close modal on backdrop click
-  document.getElementById('modalBackdrop').addEventListener('click', (ev)=>{
-    if(ev.target === ev.currentTarget) closePayPopup();
+  // Sample modal open/close
+  function openSample(id){
+    const modal = document.getElementById(id);
+    if(!modal) return;
+    modal.style.display = 'flex';
+    modal.setAttribute('aria-hidden','false');
+  }
+  function closeSample(id){
+    const modal = document.getElementById(id);
+    if(!modal) return;
+    modal.style.display = 'none';
+    modal.setAttribute('aria-hidden','true');
+  }
+
+  // Close modal on backdrop click (for pay modal)
+  const payBackdrop = document.getElementById('modalBackdrop');
+  if(payBackdrop){
+    payBackdrop.addEventListener('click', (ev)=>{
+      if(ev.target === ev.currentTarget) closePayPopup();
+    });
+  }
+
+  // Close sample modals on backdrop click
+  ['sample1Modal','sample2Modal','sample3Modal'].forEach(id=>{
+    const el = document.getElementById(id);
+    if(el){
+      el.addEventListener('click', function(ev){
+        if(ev.target === this) closeSample(id);
+      });
+    }
   });
 
-  // Accessibility: close modal with Esc
-  document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closePayPopup(); });
+  // Accessibility: close modals with Esc
+  document.addEventListener('keydown', (e)=>{ 
+    if(e.key==='Escape'){
+      closePayPopup();
+      closeSample('sample1Modal');
+      closeSample('sample2Modal');
+      closeSample('sample3Modal');
+    }
+  });
 </script>
 </body>
 </html>
