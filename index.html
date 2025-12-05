@@ -92,7 +92,7 @@
     <header>
       <div>
         <div class="brand">MianContentWorks</div>
-        <div class="tag">AI Content • Web Design • Business Automation</div>
+        <div class="tag">AI Content • Web Design </div>
       </div>
       <div class="contact">WhatsApp: <strong>+92 334 4537784</strong> • <a href="mailto:miancontentworks@gmail.com">miancontentworks@gmail.com</a></div>
     </header>
@@ -101,33 +101,24 @@
       <div class="hero-grid">
         <section>
           <h1 id="main-heading">Premium AI Services — Fast, Reliable, Worldwide</h1>
-          <p class="lead">Choose a service below — pay via Payoneer (popup) — send proof — we start work. Transparent pricing, rapid delivery, and one revision included.</p>
+          <p class="lead">Choose a service below — pay via Payoneer — send proof — we start work. Transparent pricing, rapid delivery, and one revision included.</p>
 
           <div class="services" id="services">
             <div class="svc">
               <strong>1) AI Content Writing + SEO</strong>
               <div class="tagline">800–1500 words, keyword research, on-page SEO</div>
-              <div class="price">$80 – $200</div>
+              <div class="price">$100 – $200</div>
               <div style="margin-top:8px" class="small">Starting deliverables include optimized article + meta tags. 1 revision.</div>
-              <div style="margin-top:10px"><button class="cta" onclick="selectService('AI Content Writing + SEO',80)">Buy — Start $80</button></div>
+              <div style="margin-top:10px"><button class="cta" onclick="selectService('AI Content Writing + SEO',80)">Buy — Start $100</button></div>
             </div>
 
             <div class="svc">
               <strong>2) AI Web Design (Landing Pages)</strong>
               <div class="tagline">Conversion-first landing pages, responsive, fast</div>
-              <div class="price">$100 – $400</div>
+              <div class="price">$200 – $500</div>
               <div style="margin-top:8px" class="small">Includes HTML/CSS, deployment guidance. 1 revision.</div>
-              <div style="margin-top:10px"><button class="cta" onclick="selectService('AI Web Design (Landing Pages)',100)">Buy — Start $100</button></div>
+              <div style="margin-top:10px"><button class="cta" onclick="selectService('AI Web Design (Landing Pages)',100)">Buy — Start $200</button></div>
             </div>
-
-            <div class="svc">
-              <strong>3) AI Automation Services</strong>
-              <div class="tagline">Workflows, Zapier/Make integrations, email automation</div>
-              <div class="price">$100 – $1,000</div>
-              <div style="margin-top:8px" class="small">High-value automation for business efficiency. Discovery call recommended.</div>
-              <div style="margin-top:10px"><button class="cta" onclick="selectService('AI Automation Services',100)">Buy — Start $100</button></div>
-            </div>
-          </div>
 
           <!-- Portfolio -->
           <div class="portfolio" aria-label="Portfolio examples">
@@ -146,18 +137,13 @@
                 <div><strong>AI Web Design (Landing Pages)</strong></div>
                 <div class="tagline">Landing page mockup + structure — click to view</div>
               </article>
-
-              <!-- Tile for AI Automation Services -->
-              <article class="portfolio-card" onclick="openSample('sample3Modal')">
-                <div class="thumb">Automation</div>
-                <div><strong>AI Automation Services</strong></div>
-                <div class="tagline">CRM automation workflow example — click to view</div>
-              </article>
-
+              
               <!-- NOTE: fourth item removed as you requested -->
             </div>
           </div>
 
+
+            
           <!-- FAQ -->
           <div class="faq" id="faq" style="margin-top:22px">
             <h2>FAQ</h2>
@@ -168,7 +154,7 @@
 
             <div class="q" role="button" tabindex="0">
               <div class="qtitle"><div>How long until delivery?</div><div class="small">Typical timing</div></div>
-              <div class="answer small">Starts at 48 hours for content and landing pages. Automation projects vary — we'll confirm ETA after payment proof and brief.</div>
+              <div class="answer small">Starts at 48 -72 hours for content and landing pages. Automation projects vary — we'll confirm ETA after payment proof and brief.</div>
             </div>
 
             <div class="q" role="button" tabindex="0">
@@ -217,46 +203,6 @@
           </div>
         </aside>
       </div>
-
-      <!-- Contact / upload form below hero -->
-      <section style="margin-top:18px">
-        <form id="orderForm" onsubmit="return onSubmitOrder(event)" style="background:var(--glass-2);padding:14px;border-radius:12px">
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-            <div>
-              <label class="small">Full name</label>
-              <input id="name" required type="text" placeholder="Your full name" style="padding:10px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:inherit" />
-            </div>
-            <div>
-              <label class="small">Email</label>
-              <input id="email" required type="email" placeholder="you@example.com" style="padding:10px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:inherit" />
-            </div>
-          </div>
-
-          <div style="margin-top:10px">
-            <label class="small">Service</label>
-            <select id="serviceSelect" style="padding:10px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:inherit">
-              <option>AI Content Writing + SEO</option>
-              <option>AI Web Design (Landing Pages)</option>
-              <option>AI Automation Services</option>
-            </select>
-          </div>
-
-          <div style="margin-top:10px">
-            <label class="small">Amount (USD)</label>
-            <input id="amountField" type="text" placeholder="e.g. 80" style="padding:10px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:inherit" />
-          </div>
-
-          <div style="margin-top:10px">
-            <label class="small">Brief / Notes (optional)</label>
-            <textarea id="notesField" rows="4" style="width:100%;padding:10px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:inherit"></textarea>
-          </div>
-
-          <div style="margin-top:10px;display:flex;gap:10px;align-items:center">
-            <button class="cta" type="submit">Send order & open Payoneer</button>
-            <div class="small muted">Or message: <strong>+92 334 4537784</strong></div>
-          </div>
-        </form>
-      </section>
 
     </main>
 
@@ -358,51 +304,7 @@ Sample Feature Box:
       </div>
     </div>
   </div>
-
-  <div id="sample3Modal" class="modal-backdrop" aria-hidden="true" style="display:none;align-items:center;justify-content:center">
-    <div class="modal" role="document" aria-labelledby="sample3Title">
-      <h3 id="sample3Title">PORTFOLIO SAMPLE #3 — AI Automation System (Workflow Example)</h3>
-      <div class="sample-pre">
-[WATERMARK: © Mian Content Works — Do Not Copy]
-
-Project: Customer Support Automation
-Client Type: Small Business – E-commerce
-
-Deliverables:
-
-AI-powered support chatbot
-
-Automatic reply system
-
-Lead capture automation
-
-CRM sync workflow
-
-Results:
-✔ Response time reduced from 3 hours → 10 seconds
-✔ Support cost reduced by 65%
-✔ Customer satisfaction improved from 78% → 94%
-
-Automation Steps:
-
-Incoming customer query gets tagged automatically
-
-AI assistant responds instantly
-
-If complex, it escalates to human staff
-
-Lead details sync to business CRM
-
-Daily analytics sent to email automatically
-
-[WATERMARK: © Mian Content Works — Owned & Protected]
-      </div>
-      <div style="text-align:right">
-        <button class="btn-ghost" onclick="closeSample('sample3Modal')">Close</button>
-      </div>
-    </div>
-  </div>
-
+  
 <script>
   // Interactive behaviors
   let selected = null;
@@ -524,7 +426,6 @@ Daily analytics sent to email automatically
       closePayPopup();
       closeSample('sample1Modal');
       closeSample('sample2Modal');
-      closeSample('sample3Modal');
     }
   });
 </script>
